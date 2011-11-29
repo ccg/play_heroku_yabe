@@ -6,5 +6,6 @@ dist/
 lib/
 logs/
 modules/
+out/
 test-result/
 tmp/
