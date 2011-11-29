@@ -5,6 +5,9 @@
 # Home page
 GET     /                                       Application.index
 
+# New route to users method
+GET     /users                                  Application.users
+
 # Ignore favicon requests
 GET     /favicon.ico                            404
 
