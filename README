@@ -1,0 +1,17 @@
+play intellij heroku
+
+intellij module settings: tmp/ --> Excluded
+
+run config: create new Application,
+ name: Play dev server
+ main class: play.server.Server
+ VM params: -Dapplication.path="." [really necessary? should double check]
+ environment variables: DATABASE_URL=postgres://user:pass@localhost/database
+
+install postgres via homebrew (permission denied errors, fixed by putting /usr/local/bin before /usr/bin in $PATH)
+
+pg_ctl ... (my alias postgres_start)
+
+createuser play
+
+probably don't want jpa update ddl in production (need to change conf back)
