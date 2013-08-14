@@ -1,12 +1,43 @@
-play intellij heroku
+Setting up IntelliJ and the Play Framework
+==========================================
 
-intellij module settings: tmp/ --> Excluded
+In the shell:
+
+$ play new foo
+$ cd foo
+$ play idealize
+
+Open IntelliJ.
+Select "New Project."
+Select "Create from scratch."
+Choose the Play project's directory.
+Uncheck "create module."
+Project Structure dialog pops up; cancel it.
+From the menu, choose File->New Module...
+  "Import existing module"
+  Choose foo.iml file from the Play project directory.
+(reference: http://www.jamesward.com/2011/10/24/setting-up-play-framework-apps-in-intellij-idea)
+
+
+Intellij module settings: tmp/ --> Excluded
 
 run config: create new Application,
  name: Play dev server
  main class: play.server.Server
  VM params: -Dapplication.path="." [really necessary? should double check]
  environment variables: DATABASE_URL=postgres://user:pass@localhost/database
+
+test config: create new Application,
+ name: Play test
+ main class: play.server.Server
+ VM params: -Dapplication.path="." -Dplay.id=test
+ (uncheck Make?)
+test dependency:
+ Ctrl-click project in project view and choose "Open Module Settings"
+  Under Modules => <Project_Name> => Dependencies tab
+   Click Add => single-entry module library
+    Add <play_distro_dir>/modules/testrunner/lib/play-testrunner.jar
+
 
 install postgres via homebrew (permission denied errors, fixed by putting /usr/local/bin before /usr/bin in $PATH)
 
